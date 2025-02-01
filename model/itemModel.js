@@ -11,7 +11,7 @@ const itemSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const models = {}; // Store models to avoid redefining
+const models = {};
 
 export const getItemModel = (category) => {
   if (!models[category]) {
