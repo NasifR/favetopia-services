@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const itemSchema = new mongoose.Schema(
   {
@@ -13,9 +13,12 @@ const itemSchema = new mongoose.Schema(
 
 const models = {};
 
-export const getItemModel = (category) => {
+const getItemModel = (category) => {
   if (!models[category]) {
     models[category] = mongoose.model(category, itemSchema);
   }
   return models[category];
 };
+
+// Export using CommonJS syntax
+module.exports = { getItemModel };
